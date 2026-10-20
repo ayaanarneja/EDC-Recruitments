@@ -4,6 +4,14 @@ An interactive, editorial-style portfolio exploring **Kim Kardashian’s evoluti
 
 The project combines luxury-inspired visual design, interactive storytelling, and researched content to showcase her entrepreneurial journey across beauty, fashion, shapewear, entertainment, and business.
 
+## ✦ Live Demo
+
+Explore the deployed Interactive Entrepreneur Showcase here:
+
+https://edc-recruitments.vercel.app/
+
+Experience Kim Kardashian’s entrepreneurial journey through an interactive, editorial-style portfolio featuring business ventures, career milestones, and a luxury-inspired user interface.
+
 ## ✦ Project Overview
 
 The Interactive Entrepreneur Showcase is a React-based website designed to present Kim Kardashian’s professional journey through an immersive digital experience. It highlights key milestones, business ventures, cultural influence, and entrepreneurial lessons through a structured, visually engaging interface.
