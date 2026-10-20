@@ -1,0 +1,96 @@
+/* ---------- nav ---------- */
+.logo {
+  font: 400 2.2rem/1 var(--script);
+  color: #fff;
+  text-shadow: 0 0 22px rgba(var(--g),.7);
+}
+
+.link {
+  padding: 7px 14px;
+  border-radius: 99px;
+  font-size: .9rem;
+  color: var(--muted);
+  transition: .2s;
+}
+
+.link:hover {
+  color: var(--strong);
+  background: var(--glass-2);
+}
+
+.link.on {
+  color: var(--strong);
+  background: rgba(var(--g),.14);
+  box-shadow: inset 0 0 0 1px rgba(var(--g),.35),var(--glow-s);
+}
+
+/* ---------- nav layout ---------- */
+.nav {
+  gap: 10px;
+}
+
+.logo {
+  margin-right: auto;
+}
+
+
+/* ---------- theme picker ---------- */
+.themes {
+  position: relative;
+  order: 3;
+}
+
+.sw {
+  display: block;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,var(--a) 50%,var(--b) 50%);
+  border: 1px solid var(--line-2);
+}
+
+.tpop {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 14px);
+  z-index: 40;
+  min-width: 210px;
+  padding: 8px;
+  border-radius: 18px;
+  background: var(--m1);
+  border: 1px solid var(--line-2);
+  box-shadow: var(--glow-m);
+  animation: pop .2s ease;
+}
+
+.tpop-t {
+  margin: 4px 12px 6px;
+  font-size: .8rem;
+  color: var(--muted);
+}
+
+.topt {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  color: var(--text);
+  transition: .2s;
+}
+
+.topt:hover {
+  background: var(--glass-2);
+}
+
+.topt[aria-pressed="true"] {
+  background: rgba(var(--g),.14);
+  box-shadow: inset 0 0 0 1px rgba(var(--g),.4);
+}
+
+.topt .sw {
+  width: 24px;
+  height: 24px;
+}

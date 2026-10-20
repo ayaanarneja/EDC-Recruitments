@@ -1,0 +1,203 @@
+/* ---------- content additions: early life, impact toggle, closing ---------- */
+.tl {
+  grid-template-columns: 150px 1fr;
+}
+
+.early {
+  display: grid;
+  grid-template-columns: .7fr 1.6fr;
+  gap: 3vw;
+  margin: 2rem 0 .5rem;
+  padding: 34px 36px;
+  border-radius: 26px;
+  background: linear-gradient(135deg,var(--glass-2),var(--glass));
+  border: 1px solid var(--line-2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: relative;
+  isolation: isolate;
+}
+
+.early h3 {
+  font-size: 2.4rem;
+  margin: .1em 0 .5em;
+}
+
+.early-body p {
+  margin: 0 0 .9em;
+}
+
+.early-body p:last-child {
+  margin: 0;
+}
+
+.chip-turn {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 99px;
+  font-size: .82rem;
+  color: var(--rose-t);
+  border: 1px solid rgba(var(--g),.35);
+  background: rgba(var(--g),.1);
+  box-shadow: var(--glow-s);
+}
+
+.seg {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 1.4rem 0 0;
+  padding: 5px;
+  border-radius: 99px;
+  background: var(--glass);
+  border: 1px solid var(--line-2);
+}
+
+.seg button {
+  padding: 10px 22px;
+  border-radius: 99px;
+  color: var(--muted);
+  font-weight: 500;
+  transition: .25s;
+  text-align: center;
+}
+
+.seg button:hover {
+  color: var(--strong);
+}
+
+.seg button.on {
+  color: var(--on-accent);
+  background: linear-gradient(135deg,var(--btn-hi),var(--rose));
+  box-shadow: 0 0 24px rgba(var(--g),.5);
+}
+
+.featured {
+  animation: in .35s ease;
+}
+
+.achv {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 28px;
+  margin-top: 24px;
+  padding: 34px 36px;
+  border-radius: 26px;
+  background: linear-gradient(160deg,var(--glass-2),var(--glass));
+  border: 1px solid var(--line-2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  animation: in .35s ease;
+  position: relative;
+  isolation: isolate;
+}
+
+.achv>b {
+  font: 400 4.6rem/1 var(--cond);
+  text-transform: uppercase;
+  color: var(--rose-t);
+  text-shadow: 0 0 28px rgba(var(--g),.6);
+}
+
+.achv h3 {
+  font-size: 2.1rem;
+  margin: .1em 0 .5em;
+}
+
+.achv p {
+  margin: .6em 0;
+}
+
+.achv .contrib {
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: rgba(var(--g),.08);
+  border: 1px solid var(--line);
+}
+
+.achv .row {
+  margin-top: 14px;
+  gap: 18px;
+}
+
+.tl-more p+p {
+  margin-top: .7em;
+}
+
+.closing-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 4vw;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.pull {
+  margin: 0;
+  padding: 34px 32px;
+  border-radius: 26px;
+  border: 1px solid var(--line-2);
+  background: linear-gradient(145deg,rgba(var(--g),.14),var(--glass));
+  box-shadow: 0 0 60px rgba(var(--g),.18);
+}
+
+.pull p {
+  margin: 0;
+  font: 500 italic clamp(1.5rem,2.6vw,2.2rem)/1.25 var(--serif);
+  text-shadow: 0 0 30px rgba(var(--g),.4);
+}
+
+@media (max-width:900px) {
+  .early,
+  .closing-grid {
+    grid-template-columns: 1fr;
+  }
+  .achv {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .achv>b {
+    font-size: 3.4rem;
+  }
+}
+
+@media (max-width:760px) {
+  .tl {
+    grid-template-columns: 1fr;
+  }
+  .seg {
+    border-radius: 22px;
+    width: 100%;
+  }
+  .seg button {
+    flex: 1 1 100%;
+  }
+  .early {
+    padding: 26px 22px;
+  }
+}
+
+/* featured image: fixed-height frame, image cropped to fit (works for square and wide photos) */
+.featured {
+  height: clamp(340px,36vw,480px);
+  min-height: 0;
+}
+
+.featured>img {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+}
+
+.featured>img[src*="skims"] {
+  object-position: center 28%;
+}
+
+.lesson .tl-more b {
+  font: 600 .95rem var(--sans);
+  color: var(--rose-t);
+  text-shadow: none;
+  letter-spacing: .02em;
+}

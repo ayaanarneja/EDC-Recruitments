@@ -1,0 +1,33 @@
+/* sources */
+.slist {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+  gap: 16px;
+  margin: 2rem 0;
+}
+
+.slist a {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  height: 100%;
+  padding: 22px;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.slist a>* {
+  position: relative;
+  z-index: 3;
+}
+
+.slist a:hover {
+  color: var(--text);
+  text-shadow: none;
+}
+
+.slist strong {
+  font: 500 1.4rem var(--serif);
+}

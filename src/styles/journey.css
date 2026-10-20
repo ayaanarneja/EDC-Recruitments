@@ -1,0 +1,132 @@
+/* journey */
+.timeline {
+  list-style: none;
+  margin: 2.5rem 0 0;
+  padding: 0;
+  border-left: 1px solid transparent;
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: -1px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg,transparent,var(--rose) 12%,var(--rose-d) 88%,transparent);
+  box-shadow: 0 0 14px rgba(var(--g),.7);
+  border-radius: 2px;
+}
+
+.tl {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  padding: 10px 0;
+}
+
+.tl-year {
+  position: relative;
+  padding-left: 22px;
+  font: 400 2.5rem/1.1 var(--cond);
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  color: var(--champ);
+}
+
+.tl-year::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 15px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--rose);
+  box-shadow: 0 0 0 4px rgba(var(--g),.18),0 0 18px 3px var(--rose);
+}
+
+.tl-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 20px 24px;
+  position: relative;
+  z-index: 3;
+}
+
+.tl-head>span:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tl-head strong {
+  font: 500 1.6rem/1.15 var(--serif);
+}
+
+.tl.open .chev,
+.icard.open .chev,
+.lesson.open .chev {
+  transform: rotate(180deg);
+}
+
+.tl-more {
+  display: block;
+  padding: 0 24px 22px;
+  position: relative;
+  z-index: 3;
+  animation: in .25s ease;
+}
+
+@keyframes in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* image sits beside the text at its natural aspect ratio (no cropping) */
+.tl-more.has-img {
+  display: grid;
+  grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.tl-fig {
+  margin: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: rgba(0, 0, 0, .2);
+}
+
+.tl-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 460px;
+  object-fit: contain;
+}
+
+.tl-text>p:first-child {
+  margin-top: 0;
+}
+
+@media (max-width: 760px) {
+  .tl-more.has-img {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .tl-fig {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+}

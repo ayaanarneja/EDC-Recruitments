@@ -1,0 +1,105 @@
+/* ambient light fixed behind everything */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(60vw 50vh at 85% 8%,var(--amb1),transparent 70%), radial-gradient(55vw 55vh at 5% 60%,var(--amb2),transparent 70%), linear-gradient(180deg,var(--ink),var(--ink-2) 50%,var(--ink));
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  line-height: 1.05;
+  margin: .2em 0 .4em;
+}
+
+h2 {
+  font-size: clamp(2.2rem,4.6vw,3.8rem);
+}
+
+h3 {
+  font-size: 2.3rem;
+}
+
+h2 em,
+h1 em {
+  font-style: italic;
+  color: var(--rose-t);
+  text-shadow: 0 0 28px rgba(var(--g),.55);
+}
+
+p {
+  margin: .6em 0;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+a {
+  color: var(--rose-t);
+  text-decoration-color: rgba(var(--g),.4);
+  text-underline-offset: 3px;
+  transition: color .2s,text-shadow .2s;
+}
+
+a:hover {
+  color: var(--hover);
+  text-shadow: 0 0 14px rgba(var(--g),.8);
+}
+
+:focus-visible {
+  outline: 2px solid var(--rose);
+  outline-offset: 3px;
+  border-radius: 8px;
+  box-shadow: var(--glow-s);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.small {
+  font-size: .85rem;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: .82rem;
+  font-weight: 500;
+  letter-spacing: .04em;
+  color: var(--mauve);
+  margin: 0 0 .7rem;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--rose);
+  box-shadow: 0 0 10px 2px rgba(var(--g),.8);
+  flex: none;
+}
+
+.arr,
+.chev {
+  display: inline-block;
+  transition: transform .2s;
+}
+
+button:hover .arr,
+a:hover .arr {
+  transform: translateX(4px);
+}

@@ -1,0 +1,81 @@
+/* Motion and eye-catching extras: scroll progress, reveal on scroll, card rise, marquee, hero entrance */
+
+/* thin gradient bar at the very top that fills as you scroll */
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 60;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: linear-gradient(90deg, var(--rose-d), var(--rose), var(--champ));
+  box-shadow: 0 0 12px rgba(var(--g), .8);
+}
+
+/* sections and timeline items fade up the first time they scroll into view (see useReveal.js) */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .8s ease, transform .8s cubic-bezier(.2, .7, .2, 1);
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* hero waits for the intro screen, then lifts in (the `translate` property never clashes with `transform`) */
+@keyframes lift { from { opacity: 0; translate: 0 30px; } }
+html:not([data-ready]) .stage2,
+html:not([data-ready]) .h-bottom { opacity: 0; }
+html[data-ready] .stage2 { animation: lift 1s cubic-bezier(.2, .7, .2, 1) both; }
+html[data-ready] .h-bottom { animation: lift 1s .25s cubic-bezier(.2, .7, .2, 1) both; }
+
+/* venture cards rise one after another; --i is set in VentureCard */
+@keyframes rise { from { opacity: 0; translate: 0 26px; } }
+.vgrid > * { animation: rise .6s cubic-bezier(.2, .7, .2, 1) both; animation-delay: calc(var(--i, 0) * 70ms); }
+
+/* scrolling strip of ventures: outline text that fills in on hover */
+.marquee {
+  overflow: hidden;
+  margin: 6vh 0;
+  padding: 18px 0;
+  border-block: 1px solid var(--line);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: scroll 60s linear infinite;
+}
+.marquee:hover .marquee-track { animation-play-state: paused; }
+@keyframes scroll { to { transform: translateX(-50%); } }
+.marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 22px;
+  white-space: nowrap;
+}
+.marquee-item span {
+  font: 400 clamp(2.2rem, 5vw, 3.6rem)/1 var(--cond);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(var(--g), .75);
+  transition: color .3s, text-shadow .3s;
+}
+.marquee-item:hover span,
+.marquee-item:focus-visible span {
+  color: var(--rose-t);
+  text-shadow: 0 0 28px rgba(var(--g), .7);
+}
+.marquee-item small { color: var(--champ); font-size: .85rem; letter-spacing: .1em; }
+.marquee-item i { font-style: normal; color: var(--rose-t); text-shadow: 0 0 14px var(--rose); }
+@media (prefers-reduced-motion: reduce) { .marquee { overflow-x: auto; } }
+
+/* "Turning point" chip is a real button now */
+.chip-turn { cursor: pointer; transition: box-shadow .25s, border-color .25s, transform .25s; }
+.chip-turn:hover { border-color: var(--rose); box-shadow: 0 0 22px rgba(var(--g), .5); transform: translateY(-2px); }

@@ -1,0 +1,81 @@
+/* =====================================================================
+   Kim showcase: unified design system
+   Plum noir surface, rose glow. One stylesheet, no stacked theme layers.
+   Display: Bebas Neue · Editorial: Cormorant Garamond · Body: DM Sans · Signature: Allura
+   ===================================================================== */
+:root {
+  --ink: #12060F;
+  --ink-2: #1A0A17;
+  --plum: #2A0F24;
+  --plum-2: #43213A;
+  --glass: rgba(255,255,255,.045);
+  --glass-2: rgba(255,255,255,.075);
+  --line: rgba(246,200,222,.15);
+  --line-2: rgba(246,200,222,.28);
+  --text: #F8ECF2;
+  --muted: #BBA5B4;
+  --mauve: #C9AFBF;
+  --rose: #F29CC0;
+  --rose-d: #D6478F;
+  --champ: #EBCFA9;
+  --glow-s: 0 0 18px rgba(var(--g),.28);
+  --glow-m: 0 0 0 1px rgba(var(--g),.32),0 0 28px rgba(var(--g),.26),0 12px 60px rgba(var(--g2),.2);
+  --rose-t: #F29CC0;
+  --g2: 214,71,143;
+  --script-c: #fff;
+  --amb1: rgba(214,71,143,.14);
+  --amb2: rgba(122,53,88,.2);
+  --band: rgba(122,53,88,.2);
+  --hero-rad: rgba(201,175,191,.16);
+  --hero1: #0E040C;
+  --hero2: #2A0F24;
+  --hero3: #43213A;
+  --t1: #FFE3EF;
+  --t2: #E7B2CB;
+  --t3: #8E5F7B;
+  --nav-bg: rgba(18,6,15,.72);
+  --nav-solid: rgba(18,6,15,.96);
+  --backdrop: rgba(10,3,8,.7);
+  --x-bg: rgba(18,6,15,.7);
+  --badge-bg: rgba(18,6,15,.6);
+  --tone-a: #8C4670;
+  --tone-b: #2A0F24;
+  --f2: #2A0F24;
+  --f3: #BE7C92;
+  --f-name: #FBD9E4;
+  --f-text: #EBD5E1;
+  --f-link: #E3C9D8;
+  --m1: #2A0F24;
+  --m2: #160812;
+  --btn-hi: #FFC2DC;
+  --on-accent: #2A0F24;
+  --shadow-c: rgba(122,53,88,.14);
+  --strong: #fff;
+  --hover: #fff;
+  --g: 242,156,192;
+  --ring: 255,190,220;
+  color-scheme: dark;
+  --serif: 'Cormorant Garamond',Georgia,serif;
+  --sans: 'DM Sans',system-ui,sans-serif;
+  --cond: 'Bebas Neue','Arial Narrow',sans-serif;
+  --script: 'Allura',cursive;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 104px;
+  background: var(--ink);
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  font: 16px/1.65 var(--sans);
+  overflow-x: hidden;
+  background: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}

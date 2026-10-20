@@ -1,0 +1,95 @@
+/* ---------- intro: signature on a black screen ---------- */
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: #000;
+  display: grid;
+  place-items: center;
+  transition: opacity .8s ease;
+  cursor: pointer;
+}
+
+.splash.out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sig-wrap {
+  text-align: center;
+  padding: 0 5vw;
+}
+
+.sig {
+  margin: 0;
+  white-space: nowrap;
+  font: 400 clamp(3.4rem,13vw,10rem)/1.15 var(--script);
+  color: #F9C4DC;
+  text-shadow: 0 0 10px rgba(242,156,192,.95),0 0 30px rgba(214,71,143,.85),0 0 70px rgba(110,35,90,.95);
+  clip-path: inset(-30% 100% -30% -5%);
+}
+
+.splash.go .sig {
+  animation: write 3.2s cubic-bezier(.45,.05,.35,1) .4s forwards;
+}
+
+@keyframes write {
+  to {
+    clip-path: inset(-30% -10% -30% -5%);
+  }
+}
+
+.sig-line {
+  display: block;
+  width: 68%;
+  margin: -.4em auto 0;
+  overflow: visible;
+}
+
+.sig-line path {
+  fill: none;
+  stroke: #F29CC0;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  filter: drop-shadow(0 0 6px #D6478F) drop-shadow(0 0 16px #D6478F);
+}
+
+.splash.go .sig-line path {
+  animation: draw 1.1s ease-out 3.3s forwards;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.splash-skip {
+  position: absolute;
+  right: 24px;
+  bottom: 22px;
+  padding: 8px 16px;
+  border-radius: 99px;
+  font-size: .85rem;
+  color: #C9A6BA;
+  border: 1px solid rgba(242,156,192,.3);
+  background: transparent;
+  opacity: .8;
+}
+
+.splash-skip:hover {
+  border-color: #F29CC0;
+  color: #fff;
+  box-shadow: 0 0 18px rgba(214,71,143,.6);
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .sig {
+    clip-path: none;
+  }
+  .sig-line path {
+    stroke-dashoffset: 0;
+  }
+}

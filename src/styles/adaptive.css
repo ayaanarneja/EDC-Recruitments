@@ -1,0 +1,199 @@
+/* ---------- adaptive layer: phone, tablet, laptop, large desktop ----------
+   Loaded last so it can refine the earlier files without editing each one. */
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* gentle scale-up on big laptops/monitors; 16px on phones */
+  font-size: clamp(16px, 0.35vw + 11.5px, 18px);
+}
+
+html, body { overflow-x: clip; }
+img, svg, video { max-width: 100%; }
+h1, h2, h3, p, .vdesc, .tl-head strong { overflow-wrap: break-word; }
+
+/* ---------- navigation: switch to the burger menu before the pill gets crowded ---------- */
+@media (max-width: 1280px) {
+  .kn-sep-r { display: none; }
+  .kn-link { padding: 10px 11px; font-size: .98rem; }
+  .kn-cta { padding: 13px 20px; font-size: 1rem; }
+}
+
+@media (max-width: 1120px) {
+  .kn { padding: 10px 4vw 0; }
+  .kn-pill { padding: 8px 10px 8px 16px; gap: 10px; }
+  .kn-burger { display: block; flex: none; }
+  .kn-links {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+    padding: 14px;
+    border-radius: 28px;
+    background: var(--nav-solid);
+    border: 1px solid var(--line-2);
+    box-shadow: var(--glow-m);
+    max-height: calc(100dvh - 110px);
+    overflow-y: auto;
+  }
+  .kn-links.open { display: flex; }
+  .kn-link { text-align: left; padding: 14px 16px; font-size: 1.05rem; }
+  .kn-link::after { left: 16px; right: auto; width: 28px; bottom: 8px; }
+  .kn-cta { justify-content: center; margin-top: 8px; }
+  .kn-theme { width: 44px; height: 44px; }
+}
+
+/* theme popup must never run off the screen */
+.tpop { max-width: calc(100vw - 8vw); }
+
+/* ---------- tablet ---------- */
+@media (max-width: 900px) {
+  .section { padding-top: 9vh; }
+  .about3 { margin-top: 9vh; width: 92vw; }
+  .collage { max-width: 420px; margin: 0 auto; }
+  .feat-text { max-width: 280px; }
+}
+
+/* ---------- phone ---------- */
+@media (max-width: 640px) {
+  h3 { font-size: 1.8rem; }
+  .early h3 { font-size: 1.9rem; }
+  .achv h3 { font-size: 1.7rem; }
+
+  /* hero: title and portrait stay proportionate, buttons stack */
+  .hero2 { padding: 0 6vw 9vh; }
+  .stage2 { height: clamp(380px, 112vw, 460px); }
+  .h-title { font-size: 16.5vw; top: 54%; }
+  .k-script { font-size: 22vw; }
+  .frame2 { width: 50vw; padding: 7px 7px 26px; }
+  .mini2 { padding: 4px 4px 10px; }
+  .h-bottom { flex-direction: column; align-items: stretch; gap: 22px; }
+  .lead { max-width: none; font-size: 1rem; }
+  .btns .btn { flex: 1 1 100%; text-align: center; }
+  .quick { max-width: none; }
+  .quick button { padding: 10px 14px; }
+
+  /* stats */
+  .stats { margin: -32px 6vw 0; border-radius: 22px; }
+  .stat { padding: 16px 18px; }
+  .stat strong { font-size: 2.1rem; }
+
+  /* about / early life / achievements */
+  .about3 { padding: 30px 5.5vw; border-radius: 24px; }
+  .early, .achv, .pull { padding: 24px 20px; border-radius: 22px; }
+  .glance { padding: 14px 4px; }
+
+  /* timeline */
+  .tl-year { font-size: 2rem; }
+  .tl-head { padding: 16px 16px; gap: 10px; }
+  .tl-head strong { font-size: 1.35rem; }
+  .tl-more { padding: 0 16px 18px; }
+  .icard-head, .lesson { padding: 20px; }
+  .icard-head strong, .lesson strong { font-size: 1.45rem; }
+  .lesson b { font-size: 2.6rem; }
+
+  /* ventures */
+  .vgrid { grid-template-columns: 1fr; gap: 18px; }
+  .vimg { height: 220px; }
+  .vimg b { font-size: 2.2rem; }
+  .vbody strong { font-size: 1.4rem; }
+  .featured { height: clamp(360px, 95vw, 440px); border-radius: 22px; }
+  .feat-text { left: 6%; right: 6%; bottom: 16%; max-width: none; }
+
+  /* filters / segmented controls wrap cleanly */
+  .tags, .filters { gap: 8px; }
+  .tag { padding: 10px 16px; }
+
+  /* modal: near full-screen sheet */
+  .modal {
+    width: 100vw;
+    max-width: 100vw;
+    max-height: 100dvh;
+    height: 100dvh;
+    border-radius: 0;
+    margin: 0;
+  }
+  .modal .mimg { min-height: 220px; height: 240px; }
+  .modal-in { padding: 24px 20px 28px; }
+  .tabs { overflow-x: auto; scrollbar-width: none; }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab { white-space: nowrap; }
+  .x { position: fixed; top: calc(12px + env(safe-area-inset-top, 0px)); right: 14px; }
+  .pane { min-height: 0; }
+
+  /* footer + floating button respect phone safe areas */
+  .footer { padding: 72px 6vw calc(96px + env(safe-area-inset-bottom, 0px)); }
+  .top { right: 14px; bottom: calc(14px + env(safe-area-inset-bottom, 0px)); width: 44px; height: 44px; }
+  .splash-skip { right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); }
+}
+
+/* very small phones (≤ 380px) */
+@media (max-width: 380px) {
+  .kn-name { font-size: 1.05rem; }
+  .kn-mono { transform: scale(.75); }
+  .h-title { font-size: 16vw; }
+  .stat strong { font-size: 1.9rem; }
+  .vimg { height: 200px; }
+}
+
+/* ---------- laptops / large screens ---------- */
+@media (min-width: 1100px) {
+  .vgrid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 1600px) {
+  .section { max-width: 1400px; }
+  .about3 { width: min(1400px, 88vw); }
+  .band>* { max-width: 1340px; }
+  .stats { max-width: 1400px; margin-left: auto; margin-right: auto; }
+}
+
+/* short laptop screens: don't let the hero swallow the whole viewport */
+@media (min-width: 901px) and (max-height: 760px) {
+  .stage2 { height: clamp(400px, 38vw, 500px); }
+  .section { padding-top: 9vh; }
+}
+
+/* ---------- touch devices: bigger tap targets, no hover-only tricks ---------- */
+@media (hover: none), (pointer: coarse) {
+  .tag, .seg button, .quick button, .tab, .glance button { min-height: 44px; }
+  .vcard:hover { transform: none; }
+  .frame2:hover { transform: rotate(4deg); }
+}
+
+/* ---------- header buttons: menu + theme circles match, aligned, never clipped ---------- */
+@media (max-width: 1120px) {
+  .kn-pill { padding: 8px 10px 8px 16px; gap: 8px; }
+  .themes { order: 2; flex: none; display: flex; align-items: center; }
+  .kn-burger { order: 3; }
+  .kn-theme,
+  .kn-burger {
+    box-sizing: border-box;
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    margin: 0;
+    border-radius: 50%;
+    line-height: 1;
+    text-align: center;
+    border: 1px solid var(--line-2);
+    background: linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.03));
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.2);
+    color: var(--strong);
+  }
+  .kn-burger { font-size: 1.15rem; }
+  .kn-theme svg { width: 18px; height: 18px; display: block; }
+  .tpop { right: -2px; }
+}
+
+@media (max-width: 380px) {
+  .kn-pill { padding-left: 12px; gap: 6px; }
+  .kn-theme, .kn-burger { width: 40px; height: 40px; }
+}

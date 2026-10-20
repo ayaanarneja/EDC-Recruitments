@@ -1,0 +1,234 @@
+/* ventures */
+.filters {
+  margin: 1.2rem 0 .6rem;
+}
+
+.vgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(270px,1fr));
+  gap: 24px;
+  margin-top: 1rem;
+}
+
+.vcard {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  border-radius: 20px;
+  text-align: left;
+}
+
+.vcard:hover {
+  transform: translateY(-6px);
+}
+
+.vcard:active {
+  transform: scale(.99);
+}
+
+.vimg {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  height: 240px;
+  border: 0;
+  border-radius: 0;
+  align-items: end;
+  justify-items: start;
+}
+
+.vimg.faces {
+  height: auto;
+  aspect-ratio: 1 / 1;
+}
+
+.vimg .photo {
+  position: absolute;
+  inset: 0;
+  transition: transform .5s;
+}
+
+.vcard:hover .vimg .photo {
+  transform: scale(1.05);
+}
+
+.vimg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 45%,rgba(18,6,15,.7));
+  pointer-events: none;
+}
+
+.vimg b {
+  position: absolute;
+  left: 16px;
+  top: 10px;
+  z-index: 2;
+  font: 400 2.6rem/1 var(--cond);
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: .03em;
+  text-shadow: 0 0 18px rgba(var(--g),.7),0 1px 10px rgba(0,0,0,.5);
+}
+
+.badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  font: 600 .72rem var(--sans);
+  font-style: normal;
+  letter-spacing: .03em;
+  padding: 5px 12px;
+  border-radius: 99px;
+  background: var(--badge-bg);
+  color: var(--rose-t);
+  border: 1px solid rgba(var(--g),.4);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--glow-s);
+}
+
+.peek {
+  text-align: left;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 36px 16px 14px;
+  font-size: .82rem;
+  line-height: 1.4;
+  color: #fff;
+  background: linear-gradient(transparent,rgba(18,6,15,.9));
+  opacity: 0;
+  transform: translateY(10px);
+  transition: .3s;
+}
+
+.vcard:hover .peek,
+.vcard:focus-visible .peek {
+  opacity: 1;
+  transform: none;
+}
+
+.sand,
+.navy,
+.blush,
+.ivory,
+.rose {
+  background: linear-gradient(135deg,var(--tone-a),var(--tone-b));
+}
+
+.vbody {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px 20px 20px;
+  position: relative;
+  z-index: 3;
+}
+
+.vbody strong {
+  font: 500 1.55rem/1.15 var(--serif);
+}
+
+.vdesc {
+  font-size: .9rem;
+  color: rgba(248,236,242,.8);
+}
+
+.vfoot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chips i {
+  font-style: normal;
+  font-size: .72rem;
+  padding: 3px 11px;
+  border-radius: 99px;
+  background: rgba(var(--g),.12);
+  color: var(--rose-t);
+  border: 1px solid rgba(var(--g),.22);
+}
+
+.circ {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--line-2);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: .3s;
+}
+
+.vcard:hover .circ,
+.vcard:focus-visible .circ {
+  background: var(--rose);
+  border-color: var(--rose);
+  color: var(--on-accent);
+  transform: translateX(3px);
+  box-shadow: 0 0 22px var(--rose);
+}
+
+.go {
+  margin-top: 6px;
+  font-size: .85rem;
+  color: var(--rose-t);
+}
+
+.empty {
+  padding: 40px;
+  border: 1px dashed var(--line-2);
+  border-radius: 22px;
+  text-align: center;
+}
+
+/* ---------- venture card that links out ---------- */
+.vwrap {
+  position: relative;
+  display: flex;
+}
+
+.vwrap .vcard {
+  flex: 1;
+  color: inherit;
+  text-decoration: none;
+}
+
+.vdetails {
+  position: absolute;
+  top: 52px;
+  right: 14px;
+  z-index: 5;
+  padding: 5px 12px;
+  border-radius: 99px;
+  font: 600 .72rem var(--sans);
+  letter-spacing: .03em;
+  color: #fff;
+  background: rgba(18,6,15,.6);
+  border: 1px solid rgba(255,255,255,.35);
+  backdrop-filter: blur(6px);
+  transition: background .2s,border-color .2s,box-shadow .2s;
+}
+
+.vdetails:hover,
+.vdetails:focus-visible {
+  background: var(--rose);
+  border-color: var(--rose);
+  color: var(--on-accent);
+  box-shadow: 0 0 18px var(--rose);
+}
